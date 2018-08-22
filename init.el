@@ -1,13 +1,20 @@
 ;; Things I set _every_ time I start from scratch.
 (load "~/.emacs.d/elisp/defaults.el")
+(load "~/.emacs.d/elisp/swipeclock.el")
 
 ;; color theme
-(load-theme 'doom-one-light 'no-confirm)
+(load-theme 'doom-solarized-light 'no-confirm)
 
 ;; font
 (set-default-font "Hack 13")
 
 ;; enable basic modes
+(transient-mark-mode 1)
+(global-linum-mode)
+
+;; Fix shell path
+(when (memq window-system '(mac ns x))
+  (exec-path-from-shell-initialize))
 
 ;; COMPANY
 (setq company-tooltip-align-annotations t)
@@ -18,6 +25,9 @@
 
 ;; WHICH KEY
 (which-key-mode)
+
+;; PROJECTILE
+(projectile-global-mode)
 
 ;; MAGIT
 (global-set-key (kbd "C-x g") 'magit-status)
@@ -43,6 +53,17 @@
 ;; EDITORCONFIG
 (editorconfig-mode)
 
+;; ORG
+(require 'org)
+
+(setq org-todo-keywords
+      '((sequence "TODO" "IN-PROGRESS" "WAITING" "DONE")))
+
+(add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
+
+(add-hook 'org-mode-hook (lambda ()
+			   (visual-line-mode t)))
+
 ;; language specific things
 (setq js2-basic-offset 2)
 
@@ -63,3 +84,9 @@
 
 (add-hook 'js2-mode-hook #'setup-tide-mode-for-javascript)
 (add-hook 'rjsx-mode-hook #'setup-tide-mode-for-javascript)
+
+;; prettier
+(setq prettier-js-command "prettier-eslint")
+(require 'prettier-js)
+(add-hook 'js2-mode-hook 'prettier-js-mode)
+(add-hook 'rjsx-mode-hook 'prettier-js-mode)
