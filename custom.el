@@ -6,7 +6,7 @@
  '(magit-merge-arguments (quote ("--no-ff")))
  '(package-selected-packages
    (quote
-    (prettier-js request color-theme-sanityinc-solarized projectile solarized-theme swift-mode diminish smex exec-path-from-shell expand-region rjsx-mode tide editorconfig doom-themes magit which-key company))))
+    (js2-mode js3-mode editorconfig-mode ivy use-package prettier-js request color-theme-sanityinc-solarized projectile solarized-theme swift-mode diminish smex exec-path-from-shell expand-region rjsx-mode tide editorconfig doom-themes magit which-key company))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
