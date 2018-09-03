@@ -9,6 +9,7 @@
   (package-refresh-contents)
   (package-install 'use-package))
 
+(setq use-package-verbose t)
 (require 'use-package)
 
 ;; Emacs specific settings
@@ -22,7 +23,7 @@
 (load custom-file)
 
 ;; Change default emacs things
-(menu-bar-mode -1)
+;;(menu-bar-mode -1)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 (show-paren-mode)
@@ -34,7 +35,13 @@
 (define-key global-map (kbd "RET") 'newline-and-indent)
 (set-default-font "Hack 14")
 
+;; Built in packages configuration
+(use-package eldoc
+  :diminish)
+
 ;; Third party packages and their configurations
+(use-package diminish
+  :ensure t)
 
 ;; Use mac system path
 (use-package exec-path-from-shell
@@ -47,11 +54,12 @@
 (use-package doom-themes
   :ensure t
   :config
-  (load-theme 'doom-peacock 'no-confirm))
+  (load-theme 'doom-one 'no-confirm))
 
 ;; Autocomplete everything
 (use-package company
   :ensure t
+  :diminish
   :init
   (setq company-tooltip-align-annotations t)
   :config
@@ -66,12 +74,14 @@
 ;; Helper for key bindings
 (use-package which-key
   :ensure t
+  :diminish
   :config
   (which-key-mode))
 
 ;; Fuzzy finder everywhere
 (use-package ivy
   :ensure t
+  :diminish
   :init
   (setq ivy-count-format ""
       ivy-display-style nil
@@ -96,12 +106,18 @@
 ;; BEST GIT CLIENT EVER!
 (use-package magit
   :ensure t
+  :init
+  (setq magit-status-buffer-switch-function 'switch-to-buffer)
   :config
   (global-set-key (kbd "C-x g") 'magit-status))
+
+(use-package autorevert
+  :diminish)
 
 
 (use-package editorconfig
   :ensure t
+  :diminish
   :config
   (editorconfig-mode))
 
@@ -154,3 +170,22 @@
   (add-hook 'js2-mode-hook 'prettier-js-mode)
   (add-hook 'rjsx-mode-hook 'prettier-js-mode))
 
+;; swift syntax highlighting (mainly for git diff)
+(use-package swift-mode
+  :ensure t)
+
+(use-package markdown-mode
+  :ensure t)
+
+(use-package ace-window
+  :ensure t
+  :config
+  (global-set-key (kbd "M-o") 'ace-window))
+
+(use-package ace-jump-mode
+  :ensure t
+  :config
+  (define-key global-map (kbd "C-j") 'ace-jump-mode)
+  (define-key global-map (kbd "C-c j") 'ace-jump-mode-pop-mark))
+
+(load-file "~/.emacs.d/private.el")
