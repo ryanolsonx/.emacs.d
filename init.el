@@ -35,6 +35,12 @@
 (define-key global-map (kbd "RET") 'newline-and-indent)
 (set-default-font "Hack 14")
 
+;; easy keys to split window. Key based on ErgoEmacs keybinding
+(global-set-key (kbd "M-3") 'delete-other-windows)
+(global-set-key (kbd "M-4") 'split-window-below)
+(global-set-key (kbd "M-2") 'delete-window)
+(global-set-key (kbd "M-s") 'other-window)
+
 ;; Built in packages configuration
 (use-package eldoc
   :diminish)
@@ -52,9 +58,10 @@
 
 ;; Setup my theme
 (use-package doom-themes
+  :disabled t
   :ensure t
   :config
-  (load-theme 'doom-one 'no-confirm))
+  (load-theme 'doom-tomorrow-night 'no-confirm))
 
 ;; Autocomplete everything
 (use-package company
@@ -188,4 +195,9 @@
   (define-key global-map (kbd "C-j") 'ace-jump-mode)
   (define-key global-map (kbd "C-c j") 'ace-jump-mode-pop-mark))
 
-(load-file "~/.emacs.d/private.el")
+(use-package yasnippet
+  :ensure t
+  :config
+  (yas-global-mode))
+
+;;(load-file "~/.emacs.d/private.el")
