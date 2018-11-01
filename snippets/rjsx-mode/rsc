@@ -1,0 +1,20 @@
+# -*- mode: snippet -*-
+# name: React Stateless Component
+# key: rsc
+# --
+import React, {Fragment} from 'react';
+import PropTypes from 'prop-types';
+
+const ${1:ComponentName} = props => {
+  return (
+    <Fragment>
+      ${1:ComponentName}
+    </Fragment>
+  );
+};
+
+${1:ComponentName}.propTypes = {
+  $2
+};
+
+export default ${1:ComponentName}

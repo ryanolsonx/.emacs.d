@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: Saga Watch Take Latest
+# key: swtl
+# --
+function* watch${1:SagaName}() {
+  yield takeLatest(${2:ACTION_TYPE}, ${3:saga});
+}

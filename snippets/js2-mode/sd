@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: Saga Default
+# key: sd
+# --
+export default function*() {
+  yield all([$0]);
+}

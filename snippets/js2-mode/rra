@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: Redux Reducer Action
+# key: rra
+# --
+if (action.type === ${1:TYPE}) {
+  $0
+}

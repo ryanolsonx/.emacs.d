@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: PropTypes Boolean
+# key: ptb
+# --
+PropTypes.bool${1:.isRequired},

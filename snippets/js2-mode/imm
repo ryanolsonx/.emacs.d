@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: Import Module Member
+# key: imm
+# --
+import {$2} from '$1'$0;

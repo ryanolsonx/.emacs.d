@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: Map Dispatch to Props
+# key: mdtp
+# --
+const mapDispatchToProps = dispatch => bindActionCreators({$0}, dispatch);

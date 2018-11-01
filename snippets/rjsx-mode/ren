@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: Render
+# key: ren
+# --
+render() {
+  return ${1:(
+    ${2:<div>${3}</div>}
+  );}
+}

@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: Redux Action Creator
+# key: acr
+# --
+export const ${1:action} = (${2:params}) => ({
+  type: ${3:TYPE},
+  $2
+});$0

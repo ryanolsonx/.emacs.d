@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: Redux Reducer Spread
+# key: rrs
+# --
+return { ...state, $0 };

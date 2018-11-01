@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: PropTypes Function
+# key: ptf
+# --
+PropTypes.func${1:.isRequired},

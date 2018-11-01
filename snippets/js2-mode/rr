@@ -1,0 +1,14 @@
+# -*- mode: snippet -*-
+# name: Redux Reducer
+# key: rr
+# --
+const initialState = {
+  $2
+};
+
+const ${1:reducerName} = (state = initialState, action = {}) => {
+  $0
+  return state;
+};
+
+export default ${1:reducerName};

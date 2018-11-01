@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: Import React Stuff
+# key: imr
+# --
+import React, {Fragment} from 'react';
+import PropTypes from 'prop-types';

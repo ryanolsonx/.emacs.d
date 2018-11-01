@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: Connect
+# key: con
+# --
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)($0);

@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: Redux Action Type
+# key: ac
+# --
+export const ${1:TYPE} = '${3:$1}';
