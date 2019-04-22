@@ -1,37 +1,17 @@
-(require 'package)
-(add-to-list 'package-archives (cons "melpa" "https://melpa.org/packages/") t)
-(prefer-coding-system 'utf-8)
-(package-initialize)
+(load "~/.emacs.d/should-be-default.el")
+(load-theme 'monokai t)
+(find-file "~/.emacs.d/init.el" t)
+(set-default-font "Source Code Pro 16")
 
-(set-default-font "Fantasque Sans Mono 16")
-(load-theme 'gruvbox-dark-soft t)
-
-(setq is-mac (eq window-system 'ns)
-      elisp-dir "~/.emacs.d/elisp/")
-
-(defun load-module (name)
-  (load (concat elisp-dir name)))
-
-;; Packages
-;; --
-
-;; Install:
-;; - company
-;; - magit
-;; - rjsx-mode
-;; - tide
-;; - mac osx: exec-path-from-shell
-;; - add-node-modules-path (to allow using node_modules for things like prettier)
-;; - prettier-js
-;; - yasnippet
-
-(when is-mac
-  (load-module "mac.el"))
-
-(load-module "defaults.el")
-(load-module "ido.el")
-(load-module "company.el")
-(load-module "javascript.el")
-(load-module "prettier.el")
-
-(global-set-key (kbd "C-x g") 'magit-status)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages (quote (company editorconfig magit monokai-theme))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
