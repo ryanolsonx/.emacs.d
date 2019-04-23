@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: PropTypes Definition
-# key: ptd
-# --
-${1}.propTypes = {
-  ${2:propName}: ${3:PropTypes.string},
-};

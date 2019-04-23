@@ -1,6 +1,0 @@
-# -*- mode: snippet -*-
-# name: Import Redux Container Stuff
-# key: imrc
-# --
-import {bindActionCreators} from 'redux';
-import {connect} from 'react-redux';

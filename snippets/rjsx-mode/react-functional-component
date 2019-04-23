@@ -1,0 +1,16 @@
+# -*- mode: snippet -*-
+# name: React Functional Component
+# key: r-cc
+# --
+import React, {$2} from 'react';
+import PropTypes from 'prop-types';
+
+function ${1:ComponentName}() {
+ $0
+
+ return (
+   <div>Hello $1</div>
+ );
+}
+
+$1.propTypes = {};
