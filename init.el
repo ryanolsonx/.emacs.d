@@ -46,13 +46,23 @@
 (add-hook 'rjsx-mode-hook #'add-node-modules-path)
 (add-hook 'css-mode-hook #'add-node-modules-path)
 
+;; for snippets
+(defun ro-get-file-name ()
+  (file-name-nondirectory (file-name-sans-extension (buffer-file-name))))
+
+(defun ro-get-file-name-camelcase ()
+  (from-pascal-to-camelcase (ro-get-file-name)))
+
+(defun from-pascal-to-camelcase (str)
+  (setq first (downcase (substring str 0 1)))
+  (setq rest (substring str 1 (length str)))
+  (concat first rest))
 
 (defun convert-vscode-snippet ()
   "Convert VS Code snippet pasted into a buffer. It should include prefix, body, and description"
   (interactive)
   (setq prefix (get-keys-string-value "prefix"))
   (setq name (get-keys-string-value "description"))
-  (message (concat "Prefix " prefix " Desc " name))
   (get-rid-of-everything-but-body)
   (format-body)
   (add-snippet-header prefix name)
