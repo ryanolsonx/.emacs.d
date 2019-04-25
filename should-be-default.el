@@ -7,6 +7,7 @@
 (tool-bar-mode -1)
 
 (setq-default inhibit-startup-screen t
+	      backup-inhibited t
 	      make-backup-files nil
 	      auto-save-default nil
 	      ring-bell-function 'ignore)

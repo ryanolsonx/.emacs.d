@@ -6,3 +6,7 @@ projectile*
 elpa
 .lsp*
 transient
+private.el
+recentf
+init1.el
+emojis
