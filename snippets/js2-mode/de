@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: Jest Deep Equal
-# key: de
-# --
-expect($1).toEqual($2);$0

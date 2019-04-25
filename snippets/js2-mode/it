@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: Jest It
-# key: it
-# --
-it('should ${1:...}', () => {
-  $0
-});

@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: Arrow Function
-# key: af
-# --
-() => {
-  $1
-}

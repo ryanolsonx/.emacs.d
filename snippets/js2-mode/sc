@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: Saga Create
-# key: sc
-# --
-export function* ${1:sagaName}() {
-  $0
-}

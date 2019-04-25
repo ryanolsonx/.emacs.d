@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: Import Module Default
-# key: imd
-# --
-import ${2: $1} from '$1'$0;

@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: Jest Describe
-# key: desc
-# --
-describe('$1', () => {
-  $0
-});

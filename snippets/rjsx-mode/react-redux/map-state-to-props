@@ -1,9 +1,0 @@
-# -*- mode: snippet -*-
-# name: React Redux Map State to Props
-# key: maps
-# --
-function mapStateToProps(state) {
-  return {
-    $0
-  }
-}

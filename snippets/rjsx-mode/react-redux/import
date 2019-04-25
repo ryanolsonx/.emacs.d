@@ -1,6 +1,0 @@
-# -*- mode: snippet -*-
-# name: React Redux Imports
-# key: irr
-# --
-import {bindActionCreators} from 'redux';
-import {connect} from 'react-redux';

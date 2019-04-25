@@ -1,9 +1,0 @@
-# -*- mode: snippet -*-
-# name: React Redux Map Dispatch to Props
-# key: mapd
-# --
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({
-    $0
-  }, dispatch);
-}

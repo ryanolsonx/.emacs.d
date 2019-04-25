@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: React Hook: useState
-# key: rus
-# --
-const [$1, set${1:$(upcase yas-text)}] = useState($2);
