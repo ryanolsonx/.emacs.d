@@ -4,3 +4,5 @@ ido.*
 smex*
 projectile*
 elpa
+.lsp*
+transient
