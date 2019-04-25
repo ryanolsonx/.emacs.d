@@ -1,0 +1,21 @@
+* Snippet Shortcuts
+
+** React
+
+*** rcfm - React File Functional Module
+*** rcf - React File Functional
+*** rc - React Component (Functional)
+
+** Hooks
+
+*** rus - useState
+
+** React Redux
+
+*** rcc - React Component (Connected)
+*** irr - Import React Redux
+*** con - React Redux Connect
+*** mapd - Map Dispatch
+*** maps - Map State
+*** rccc - Connected Class
+*** rcccf - File Connected Class

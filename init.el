@@ -14,8 +14,6 @@
 (exec-path-from-shell-initialize)
 (show-paren-mode)
 (editorconfig-mode)
-(yas-global-mode)
-(global-set-key (kbd "C-c s") 'yas-insert-snippet)
 (global-set-key (kbd "C-j") 'avy-goto-char)
 
 (require 'expand-region)
@@ -142,7 +140,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (yasnippet add-node-modules-path prettier-js exec-path-from-shell avy projectile which-key rjsx-mode lsp-mode company editorconfig magit monokai-theme))))
+    (add-node-modules-path prettier-js exec-path-from-shell avy projectile which-key rjsx-mode lsp-mode company editorconfig magit monokai-theme))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

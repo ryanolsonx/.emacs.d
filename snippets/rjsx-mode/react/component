@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: React Functional Component
-# key: r-cc
+# key: rc
 # --
 import React, {$2} from 'react';
 import PropTypes from 'prop-types';

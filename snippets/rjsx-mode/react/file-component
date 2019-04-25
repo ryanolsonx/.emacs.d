@@ -1,10 +1,10 @@
 # -*- mode: snippet -*-
-# name: React File Functional Component (module)
-# key: r-file-cc-mod
+# name: React File Functional Component
+# key: rcf
 # --
 import React, {$3} from 'react';
 import PropTypes from 'prop-types';
-import css from './${1:`(ro-get-file-name-camelcase)`}.scss?module';
+import css from './${1:`(ro-get-file-name-camelcase)`}.scss';
 
 function ${1:`(ro-get-file-name)`}() {
  $0

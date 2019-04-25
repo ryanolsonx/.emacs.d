@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: React Redux Connect
+# key: con
+# --
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(${1:ComponentName});
