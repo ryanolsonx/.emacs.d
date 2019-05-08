@@ -10,7 +10,8 @@
 	      backup-inhibited t
 	      make-backup-files nil
 	      auto-save-default nil
-	      ring-bell-function 'ignore)
+	      ring-bell-function 'ignore
+	      initial-scratch-message "")
 
 (fset 'yes-or-no-p 'y-or-n-p)
 (define-key global-map (kbd "RET") 'newline-and-indent)
