@@ -1,12 +1,3 @@
-auto-save-list
-eshell
-ido.*
-smex*
-projectile*
-elpa
-.lsp*
-transient
-private.el
-recentf
-init1.el
-emojis
+*
+!init.el
+!.gitignore
