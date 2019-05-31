@@ -13,7 +13,7 @@
       indent-tabs-mode nil
       inhibit-startup-screen t
       initial-scratch-message ""
-      visible-bell t)
+      ring-bell-function 'ignore)
 
 (add-hook 'js-mode-hook (lambda () (setq js-indent-level 2)))
 
