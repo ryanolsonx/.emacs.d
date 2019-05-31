@@ -17,6 +17,8 @@
 
 (add-hook 'js-mode-hook (lambda () (setq js-indent-level 2)))
 
+(add-hook 'scss-mode-hook (lambda () (setq css-indent-offset 2)))
+
 (add-to-list 'auto-mode-alist '("\\.cs" . (lambda ()
 					    (setq tab-width 4
 						  indent-tabs-mode t))))
