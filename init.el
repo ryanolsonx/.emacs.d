@@ -16,8 +16,15 @@ There are two things you can do about this warning:
 (package-refresh-contents)
 (package-initialize)
 
+(setq is-windows (string-equal system-type "windows-nt"))
+
 ;; Syntax highlighting off
 (global-font-lock-mode -1)
+
+(if is-windows
+    (set-frame-font "Consolas 16" nil t)
+  (set-frame-font "Source Code Pro-15" nil t))
+
 (global-auto-revert-mode t)
 (delete-selection-mode t)
 (fringe-mode 0)
