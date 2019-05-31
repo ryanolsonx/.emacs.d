@@ -25,7 +25,7 @@
 
 (defun insert-template (templateFilePath)
   "Insert a template skeleton from a file path"
-  (interactive (list (read-file-name "Template File Path: " "~/.emacs/templates/")))
+  (interactive (list (read-file-name "Template File Path: " "~/.emacs.d/templates/")))
   (insert-file-contents templateFilePath))
 
 (global-set-key (kbd "C-c t") 'insert-template)
