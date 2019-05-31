@@ -29,3 +29,13 @@
   (insert-file-contents templateFilePath))
 
 (global-set-key (kbd "C-c t") 'insert-template)
+
+(defun run-bash ()
+  (interactive)
+  (let ((shell-file-name "C:\\Program Files\\Git\\bin\\bash.exe"))
+    (shell "*bash*")))
+
+(defun run-cmd ()
+  (interactive)
+  (let ((shell-file-name "cmd.exe"))
+    (shell "*cmd.exe*")))
