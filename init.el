@@ -22,7 +22,7 @@ There are two things you can do about this warning:
 (global-font-lock-mode -1)
 
 (if is-windows
-    (set-frame-font "Consolas 16" nil t)
+    (set-frame-font "Anonymous Pro-11" nil t)
   (set-frame-font "Anonymous Pro-16" nil t))
 
 (global-auto-revert-mode t)
