@@ -6,6 +6,8 @@
 (delete-selection-mode t)
 
 (setq make-backup-files nil
+      backup-inhibited t
+      auto-save-default nil
       standard-indent 2
       tab-width 2
       indent-tabs-mode nil
