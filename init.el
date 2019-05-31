@@ -6,14 +6,18 @@
 (delete-selection-mode t)
 
 (setq make-backup-files nil
+      backup-inhibited t
+      auto-save-default nil
       standard-indent 2
       tab-width 2
       indent-tabs-mode nil
       inhibit-startup-screen t
       initial-scratch-message ""
-      visible-bell t)
+      ring-bell-function 'ignore)
 
 (add-hook 'js-mode-hook (lambda () (setq js-indent-level 2)))
+
+(add-hook 'scss-mode-hook (lambda () (setq css-indent-offset 2)))
 
 (add-to-list 'auto-mode-alist '("\\.cs" . (lambda ()
                                             (setq tab-width 4
