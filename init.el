@@ -16,5 +16,12 @@
 (add-hook 'js-mode-hook (lambda () (setq js-indent-level 2)))
 
 (add-to-list 'auto-mode-alist '("\\.cs" . (lambda ()
-					    (setq tab-width 4
-						  indent-tabs-mode t))))
+                                            (setq tab-width 4
+                                                  indent-tabs-mode t))))
+
+(defun insert-template (templateFilePath)
+  "Insert a template skeleton from a file path"
+  (interactive (list (read-file-name "Template File Path: " "~/.emacs/templates/")))
+  (insert-file-contents templateFilePath))
+
+(global-set-key (kbd "C-c t") 'insert-template)
