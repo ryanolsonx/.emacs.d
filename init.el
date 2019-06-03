@@ -13,9 +13,13 @@
       initial-scratch-message ""
       ring-bell-function 'ignore)
 
+(require 'sgml-mode)
 (add-hook 'js-mode-hook (lambda () (setq tab-width 2
 					 js-indent-level 2
-					 indent-tabs-mode nil)))
+					 sgml-basic-offset 2
+					 sgml-attribute-offset 2
+					 indent-tabs-mode nil)
+			  (local-set-key (kbd "RET") 'electric-indent-just-newline)))
 
 (add-hook 'scss-mode-hook (lambda () (setq tab-width 2
 					   css-indent-offset 2
@@ -43,4 +47,7 @@
   (defun run-cmd ()
     (interactive)
     (let ((shell-file-name "cmd.exe"))
-    (shell "*cmd.exe*"))))
+      (shell "*cmd.exe*"))))
+
+(when (eq system-type 'darwin)
+  (set-frame-font "Hack 15" nil t))
