@@ -37,7 +37,7 @@
 (global-set-key (kbd "C-c t") 'insert-template)
 
 (when (eq system-type 'windows-nt)
-  (set-frame-font "Consolas 17" nil t)
+  (set-frame-font "Consolas 13" nil t)
 
   (defun run-bash ()
     (interactive)
