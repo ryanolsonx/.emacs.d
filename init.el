@@ -9,16 +9,17 @@
 (setq make-backup-files nil
       backup-inhibited t
       auto-save-default nil
-      standard-indent 2
-      tab-width 2
-      indent-tabs-mode nil
       inhibit-startup-screen t
       initial-scratch-message ""
       ring-bell-function 'ignore)
 
-(add-hook 'js-mode-hook (lambda () (setq js-indent-level 2)))
+(add-hook 'js-mode-hook (lambda () (setq tab-width 2
+					 js-indent-level 2
+					 indent-tabs-mode nil)))
 
-(add-hook 'scss-mode-hook (lambda () (setq css-indent-offset 2)))
+(add-hook 'scss-mode-hook (lambda () (setq tab-width 2
+					   css-indent-offset 2
+					   indent-tabs-mode nil)))
 
 (add-to-list 'auto-mode-alist '("\\.cs" . (lambda ()
                                             (setq tab-width 4
@@ -31,12 +32,15 @@
 
 (global-set-key (kbd "C-c t") 'insert-template)
 
-(defun run-bash ()
-  (interactive)
-  (let ((shell-file-name "C:\\Program Files\\Git\\bin\\bash.exe"))
-    (shell "*bash*")))
+(when (eq system-type 'windows-nt)
+  (set-frame-font "Consolas 17" nil t)
 
-(defun run-cmd ()
-  (interactive)
-  (let ((shell-file-name "cmd.exe"))
-    (shell "*cmd.exe*")))
+  (defun run-bash ()
+    (interactive)
+    (let ((shell-file-name "C:\\Program Files\\Git\\bin\\bash.exe"))
+      (shell "*bash*")))
+
+  (defun run-cmd ()
+    (interactive)
+    (let ((shell-file-name "cmd.exe"))
+    (shell "*cmd.exe*"))))
