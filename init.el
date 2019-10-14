@@ -17,18 +17,13 @@
 (savehist-mode)
 (global-auto-revert-mode t)
 
-
 (fset 'yes-or-no-p 'y-or-n-p)
 (define-key global-map (kbd "RET") 'newline-and-indent)
 
-(setq-default indent-tabs-mode nil
-              tab-width 2
-              inhibit-startup-screen t
-              js-indent-level 2
+(setq-default inhibit-startup-screen t
               make-backup-file nil
               create-lockfiles nil
               auto-save-default nil
-              css-indent-offset 2
               vc-follow-symlinks t
               custom-file "custom.el"
               ring-bell-function 'ignore
@@ -37,12 +32,10 @@
 
 (load custom-file)
 
-
-(add-to-list 'auto-mode-alist '("\\.cs" . (lambda ()
-                                            (setq tab-width 4
-                                                  indent-tabs-mode t))))
 (add-hook 'js-mode-hook (lambda ()
                           (local-set-key (kbd "M-.") 'xref-find-definitions)))
+
+(use-package diminish)
 
 (use-package eldoc
   :diminish)
@@ -52,11 +45,10 @@
   :config
   (global-company-mode t))
 
-(use-package diminish)
-
 (use-package exec-path-from-shell
   :config
   (when (memq window-system '(mac ns x))
+    (message "exec path")
     (exec-path-from-shell-initialize)))
 
 (use-package expand-region
@@ -86,12 +78,10 @@
   :init
   (setq projectile-completion-system 'ivy)
   :config
-  (projectile-global-mode)
+  (projectile-mode)
   (define-key projectile-mode-map (kbd "C-x p") 'projectile-command-map))
 
 (use-package magit
-  :init
-  (setq magit-status-buffer-switch-function 'switch-to-buffer)
   :config
   (global-set-key (kbd "C-x g") 'magit-status))
 
@@ -105,8 +95,12 @@
 
 (use-package prettier-js
   :init
-  (setq prettier-js-command "prettier-eslint")
-  (add-hook 'js-mode-hook 'prettier-js-mode))
+  (setq prettier-js-command "prettier-eslint"))
+  ;;(add-hook 'js-mode-hook 'prettier-js-mode))
+
+(use-package add-node-modules-path
+  :init
+  (add-hook 'js-mode-hook #'add-node-modules-path))
 
 (use-package ace-jump-mode
   :config
@@ -116,3 +110,14 @@
 (use-package ace-window
   :config
   (global-set-key (kbd "M-o") 'ace-window))
+
+(use-package flycheck
+  :config
+  (global-flycheck-mode)
+  (setq-default flycheck-disabled-checkers
+		(append flycheck-disabled-checkers
+			'(javascript-jshint)))
+  (flycheck-add-mode 'javascript-eslint 'js-mode))
+
+(use-package json-mode)
+
