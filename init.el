@@ -32,8 +32,13 @@ There are two things you can do about this warning:
 (which-key-mode)
 (editorconfig-mode +1)
 (show-paren-mode +1)
+(require 'ido)
+(ido-mode t)
 
 (global-set-key (kbd "C-x g") 'magit-status)
+(global-set-key (kbd "C-=") 'er/expand-region)x
+(global-set-key (kbd "C-c M-x") 'execute-extended-command)
+(global-set-key (kbd "M-x") 'smex)
 
 (defun setup-javascript ()
   "When opening a javascript file, set it up so that it uses a lot of nice things"
@@ -55,8 +60,6 @@ There are two things you can do about this warning:
 (add-hook 'js-mode-hook #'flycheck-mode)
 
 (add-hook 'js-mode-hook #'add-node-modules-path)
-
-(global-set-key (kbd "C-=") 'er/expand-region)
 
 (defun shell-command-with-file-name (command &optional output-buffer error-buffer)
   (interactive
