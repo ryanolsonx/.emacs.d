@@ -4,17 +4,14 @@
 (column-number-mode t)
 (delete-selection-mode t)
 (global-auto-revert-mode t)
-(global-linum-mode t)
 
 (setq-default inhibit-startup-screen t
 	      ring-bell-function 'ignore
 	      indent-tabs-mode nil
 	      js-indent-level 2
-	      css-indent-level 2)
-
-;; store all backup and autosave files in the tmp dir
-(setq backup-directory-alist `((".*" . ,temporary-file-directory)))
-(setq auto-save-file-name-transforms `((".*" ,temporary-file-directory t)))
+	      css-indent-level 2
+              make-backup-file nil
+              auto-save-default nil)
 
 (global-set-key (kbd "C-0") 'delete-window)
 (global-set-key (kbd "C-1") 'delete-other-windows)
@@ -42,30 +39,76 @@
 (global-set-key (kbd "C-c d") 'duplicate-line)
 (global-set-key (kbd "C-c C-d") 'duplicate-line)
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+(defface special-keyword
+  '((t :foreground "black"
+       :background "aquamarine"
+       ))
+  "Face for special keywords."
+  :group 'js-mode)
+
+(add-hook 'js-mode-hook
+          (lambda ()
+            (font-lock-add-keywords nil
+                                    '(("\\<\\(function\\|return\\|throw\\)\\>" . 'special-keyword)))))
+
+;; Apple Books
+;; v1
 ;; (custom-set-faces
 ;;  ;; custom-set-faces was added by Custom.
 ;;  ;; If you edit it by hand, you could mess it up, so be careful.
 ;;  ;; Your init file should contain only one such instance.
 ;;  ;; If there is more than one, they won't work right.
-;;  '(default ((t (:background "#3B3228" :foreground "#bba792" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 130 :width normal :foundry "nil" :family "Fira Mono"))))
-;;  '(font-lock-builtin-face ((t (:foreground "#bba792"))))
-;;  '(font-lock-comment-face ((t (:foreground "#9db889"))))
-;;  '(font-lock-constant-face ((t (:foreground "#bba792"))))
+;;  '(default ((t (:inherit nil :extend nil :stipple nil :background "#faf4e9" :foreground "#603e22" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 140 :width normal :foundry "nil" :family "Fira Mono"))))
+;;  '(font-lock-builtin-face ((t (:foreground "#603e22"))))
+;;  '(font-lock-comment-face ((t (:foreground "#5f380c" :background "#f9dc78"))))
+;;  '(font-lock-constant-face ((t (:foreground "#603e22"))))
 ;;  '(font-lock-doc-face ((t (:inherit font-lock-comment-face))))
-;;  '(font-lock-function-name-face ((t (:foreground "#bba792"))))
-;;  '(font-lock-keyword-face ((t (:foreground "#D08864"))))
-;;  '(font-lock-string-face ((t (:foreground "#CFAE74"))))
-;;  '(font-lock-type-face ((t (:foreground "#CFAE74"))))
-;;  '(font-lock-preprocessor-face ((t (:foreground "#D08864"))))
-;;  '(font-lock-variable-name-face ((t (:foreground "#bba792")))))
+;;  '(font-lock-function-name-face ((t (:foreground "#603e22"))))
+;;  '(font-lock-keyword-face ((t (:foreground "#603e22"))))
+;;  '(font-lock-preprocessor-face ((t (:foreground "#603e22"))))
+;;  '(font-lock-string-face ((t (:foreground "#603e22" :background "#ebe5db"))))
+;;  '(font-lock-type-face ((t (:foreground "#5e2718" :background "#fb9ead"))))
+;;  '(font-lock-variable-name-face ((t (:foreground "#603e22")))))
 
-;; my 1.0
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(default ((t (:inherit nil :extend nil :stipple nil :background "#faf4e9" :foreground "#603e22" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 140 :width normal :foundry "nil" :family "SF Mono"))))
+ '(font-lock-builtin-face ((t (:foreground "#603e22"))))
+ '(font-lock-comment-face ((t (:foreground "#603e22" :background "#ebe5db"))))
+ '(font-lock-constant-face ((t (:foreground "#603e22"))))
+ '(font-lock-doc-face ((t (:inherit font-lock-comment-face))))
+ '(font-lock-function-name-face ((t (:foreground "#603e22"))))
+ '(font-lock-keyword-face ((t (:foreground "#603e22"))))
+ '(special-keyword ((t (:foreground "#603e22" :background "#f9dc78"))))
+ '(font-lock-preprocessor-face ((t (:foreground "#603e22"))))
+ '(font-lock-string-face ((t (:foreground "#603e22"))))
+ '(font-lock-type-face ((t (:foreground "#603e22"))))
+ '(font-lock-variable-name-face ((t (:foreground "#603e22")))))
+
+;; summerfruit
+;; (font-lock-add-keywords 'js-mode
+;;                         '(("\\<\\(function\\|async\\|await\\|export\\|import\\|const\\|var\\|let\\)\\>" . font-lock-type-face)))
+;; (custom-set-faces
+;;  ;; custom-set-faces was added by Custom.
+;;  ;; If you edit it by hand, you could mess it up, so be careful.
+;;  ;; Your init file should contain only one such instance.
+;;  ;; If there is more than one, they won't work right.
+;;  '(default ((t (:inherit nil :extend nil :stipple nil :background "#fdfdfd" :foreground "#232a2e" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 130 :width normal :foundry "nil" :family "Fira Mono"))))
+;;  '(font-lock-builtin-face ((t (:foreground "#fb6e39"))))
+;;  '(font-lock-comment-face ((t (:foreground "#358f27" :background "#dcf2cd"))))
+;;  '(font-lock-constant-face ((t (:foreground "#fb6e39"))))
+;;  '(font-lock-doc-face ((t (:inherit font-lock-comment-face))))
+;;  '(font-lock-function-name-face ((t (:foreground "#232a2e"))))
+;;  '(font-lock-keyword-face ((t (:foreground "#fb6e39"))))
+;;  '(font-lock-string-face ((t (:foreground "#348bd3"))))
+;;  '(font-lock-type-face ((t (:foreground "#fb2585"))))
+;;  '(font-lock-preprocessor-face ((t (:foreground "#fb6e39"))))
+;;  '(font-lock-variable-name-face ((t (:foreground "#232a2e")))))
+
+;; my theme
 ;; (custom-set-faces
 ;;  ;; custom-set-faces was added by Custom.
 ;;  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -83,104 +126,9 @@
 ;;  '(font-lock-preprocessor-face ((t (:foreground "#e7c072"))))
 ;;  '(font-lock-variable-name-face ((t (:foreground "#c5b09a")))))
 
-;; minimal green accent, brown comments, yellow string
-;; (custom-set-faces
-;;  ;; custom-set-faces was added by Custom.
-;;  ;; If you edit it by hand, you could mess it up, so be careful.
-;;  ;; Your init file should contain only one such instance.
-;;  ;; If there is more than one, they won't work right.
-;;  '(default ((t (:inherit nil :extend nil :stipple nil :background "#0c100e" :foreground "#b2bdb7" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 150 :width normal :foundry "nil" :family "Fira Mono"))))
-;;  '(font-lock-builtin-face ((t (:inherit default))))
-;;  '(font-lock-comment-face ((t (:foreground "#a37c53"))))
-;;  '(font-lock-constant-face ((t (:inherit default))))
-;;  '(font-lock-doc-face ((t (:inherit font-lock-comment-face))))
-;;  '(font-lock-function-name-face ((t (:inherit default))))
-;;  '(font-lock-keyword-face ((t (:foreground "#90ad41"))))
-;;  '(font-lock-preprocessor-face ((t (:inherit default))))
-;;  '(font-lock-string-face ((t (:foreground "#be974f"))))
-;;  '(font-lock-type-face ((t (:foreground "#90ad41"))))
-;;  '(font-lock-variable-name-face ((t (:inherit default))))
-;;  '(fringe ((t (:background "#0c100e")))))
-
-;; (custom-set-faces
-;;  ;; custom-set-faces was added by Custom.
-;;  ;; If you edit it by hand, you could mess it up, so be careful.
-;;  ;; Your init file should contain only one such instance.
-;;  ;; If there is more than one, they won't work right.
-;;  '(default ((t (:inherit nil :extend nil :stipple nil :background "#0c100e" :foreground "#b2bdb7" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 150 :width normal :foundry "nil" :family "Fira Mono"))))
-;;  '(font-lock-builtin-face ((t (:inherit default))))
-;;  '(font-lock-comment-face ((t (:foreground "#90ad41"))))
-;;  '(font-lock-constant-face ((t (:inherit default))))
-;;  '(font-lock-doc-face ((t (:inherit font-lock-comment-face))))
-;;  '(font-lock-function-name-face ((t (:inherit default))))
-;;  '(font-lock-keyword-face ((t (:foreground "#a37c53"))))
-;;  '(font-lock-preprocessor-face ((t (:inherit default))))
-;;  '(font-lock-string-face ((t (:foreground "#be974f"))))
-;;  '(font-lock-type-face ((t (:foreground "#a37c53"))))
-;;  '(font-lock-variable-name-face ((t (:inherit default))))
-;;  '(fringe ((t (:background "#0c100e")))))
-
-;; monokai
-;; (custom-set-faces
-;;  ;; custom-set-faces was added by Custom.
-;;  ;; If you edit it by hand, you could mess it up, so be careful.
-;;  ;; Your init file should contain only one such instance.
-;;  ;; If there is more than one, they won't work right.
-;;  '(default ((t (:inherit nil :extend nil :stipple nil :background "#282923" :foreground "#f8f8f2" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 150 :width normal :foundry "nil" :family "Fira Mono"))))
-;;  '(font-lock-builtin-face ((t (:inherit default))))
-;;  '(font-lock-comment-face ((t (:foreground "#74705d"))))
-;;  '(font-lock-constant-face ((t (:foreground "#ac80ff"))))
-;;  '(font-lock-doc-face ((t (:inherit font-lock-comment-face))))
-;;  '(font-lock-function-name-face ((t (:foreground "#a6e22c"))))
-;;  '(font-lock-keyword-face ((t (:foreground "#f92472"))))
-;;  '(font-lock-preprocessor-face ((t (:foreground "#f92472"))))
-;;  '(font-lock-string-face ((t (:foreground "#e7db74"))))
-;;  '(font-lock-type-face ((t (:foreground "#67d8ef"))))
-;;  '(font-lock-variable-name-face ((t (:inherit default))))
-;;  '(fringe ((t (:inherit default))))
-;;  '(region ((t (:extend t :background "#48473d")))))
-
-;; monokai muted
-;; (custom-set-faces
-;;  ;; custom-set-faces was added by Custom.
-;;  ;; If you edit it by hand, you could mess it up, so be careful.
-;;  ;; Your init file should contain only one such instance.
-;;  ;; If there is more than one, they won't work right.
-;;  '(default ((t (:inherit nil :extend nil :stipple nil :background "#30322a" :foreground "#e6e6d1" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 150 :width normal :foundry "nil" :family "Fira Mono"))))
-;;  '(font-lock-builtin-face ((t (:inherit default))))
-;;  '(font-lock-comment-face ((t (:foreground "#9bc34b")))) ;; green
-;;  '(font-lock-constant-face ((t (:foreground "#b69fdf")))) ;; purple
-;;  '(font-lock-doc-face ((t (:inherit font-lock-comment-face))))
-;;  '(font-lock-function-name-face ((t (:inherit default))))
-;;  '(font-lock-keyword-face ((t (:foreground "#c75780")))) ;; red
-;;  '(font-lock-preprocessor-face ((t (:foreground "#c75780")))) ;; red
-;;  '(font-lock-string-face ((t (:foreground "#d6ce85")))) ;; yellow
-;;  '(font-lock-type-face ((t (:foreground "#81c7d5")))) ;; blue
-;;  '(font-lock-variable-name-face ((t (:inherit default))))
-;;  '(fringe ((t (:inherit default))))
-;;  '(region ((t (:extend t :foreground "#000000" :background "#81c7d5")))))
-
-;; PEACH PUFF
-(font-lock-add-keywords 'js-mode
-                        '(("\\<\\(function\\)\\>" . font-lock-type-face)))
-
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :extend nil :stipple nil :background "#1e1e1e" :foreground "#d8d8d8" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 150 :width normal :foundry "nil" :family "Fira Mono"))))
- '(font-lock-builtin-face ((t (:inherit default))))
- '(font-lock-comment-face ((t (:foreground "#7eda09")))) ;; green
- '(font-lock-constant-face ((t (:foreground "#ae5141")))) ;; red
- '(font-lock-doc-face ((t (:inherit font-lock-comment-face))))
- '(font-lock-function-name-face ((t (:inherit default))))
- '(font-lock-keyword-face ((t (:foreground "#c3af48")))) ;; yellow
- '(font-lock-preprocessor-face ((t (:foreground "#946d99")))) ;; magenta
- '(font-lock-string-face ((t (:foreground "#ae5141")))) ;; red
- '(font-lock-type-face ((t (:foreground "#44b0b6")))) ;; blue
- '(font-lock-variable-name-face ((t (:inherit default))))
- '(fringe ((t (:inherit default))))
- '(linum ((t (:foreground "#c3af48"))))
- '(region ((t (:extend t :foreground "#000000" :background "#81c7d5")))))
-
+ )
