@@ -15,15 +15,13 @@
 
 (global-set-key (kbd "C-0") 'delete-window)
 (global-set-key (kbd "C-1") 'delete-other-windows)
-(global-set-key (kbd "C-2") (lambda () (interactive) (split-window-vertically) (other-window 1)))
-(global-set-key (kbd "M-2") 'split-window-vertically)
-(global-set-key (kbd "C-3") (lambda () (interactive) (split-window-horizontally) (other-window 1)))
-(global-set-key (kbd "M-3") 'split-window-horizontally)
+(global-set-key (kbd "C-2") 'split-window-vertically)
+(global-set-key (kbd "C-3") 'split-window-horizontally)
 (global-set-key (kbd "C-o") (lambda () (interactive) (other-window 1)))
 (global-set-key (kbd "C-,") 'beginning-of-buffer)
 (global-set-key (kbd "C-.") 'end-of-buffer)
-(global-set-key (kbd "<C-return>") 'switch-to-buffer)
-(global-set-key (kbd "C-c C-/") 'comment-or-uncomment-region)
+(global-set-key (kbd "M-m") 'switch-to-buffer)
+(global-set-key (kbd "C-/") 'comment-or-uncomment-region)
 (global-set-key (kbd "C-r") 'replace-string)
 (global-set-key (kbd "C-q") 'query-replace)
 
@@ -40,32 +38,16 @@
 (global-set-key (kbd "C-c d") 'duplicate-line)
 (global-set-key (kbd "C-c C-d") 'duplicate-line)
 
-(defface special-keyword
-  '((t :foreground "black"
-       :background "aquamarine"
-       ))
-  "Face for special keywords."
-  :group 'js-mode)
-
-(add-hook 'js-mode-hook
-          (lambda ()
-            (font-lock-add-keywords nil
-                                    '(("\\<\\(function\\|test\\|describe\\)\\>" . 'special-keyword)))))
-
-(add-hook 'html-mode-hook
-          (lambda ()
-            (font-lock-add-keywords nil
-                                    '(("\\<\\(function\\|test\\|describe\\)\\>" . 'special-keyword)))))
-
+;; acme
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:background "#faf4e9" :foreground "#603e22" :height 140 :family "SF Mono"))))
+ '(default ((t (:background "#FFFFEA" :foreground "#000000" :height 140 :family "SF Mono"))))
  '(font-lock-builtin-face ((t (:inherit default))))
- '(font-lock-comment-face ((t (:background "#FAEECD"))))
- '(font-lock-constant-face ((t (:background "#DEE9E9"))))
+ '(font-lock-comment-face ((t (:inherit default))))
+ '(font-lock-constant-face ((t (:inherit default))))
  '(font-lock-doc-face ((t (:inherit font-lock-comment-face))))
  '(font-lock-function-name-face ((t (:inherit default))))
  '(font-lock-keyword-face ((t (:inherit default))))
@@ -74,11 +56,8 @@
  '(font-lock-type-face ((t (:inherit default))))
  '(font-lock-variable-name-face ((t (:inherit default))))
  '(isearch ((t (:background "#f9dc78"))))
- '(lazy-highlight ((t (:background "#94cae9"))))
- '(special-keyword ((t (:foreground "#603e22" :background "#FADDD9"))))
- '(org-level-1 ((t (:weight bold))))
- '(org-level-2 ((t (:weight bold))))
- '(org-level-3 ((t (:weight bold))))
+ '(lazy-highlight ((t (:background "#fff896"))))
+ '(region ((t (:background "#EEED9E"))))
  '(fringe ((t (:inherit default)))))
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
