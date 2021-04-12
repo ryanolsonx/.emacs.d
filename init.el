@@ -21,7 +21,7 @@
 (global-set-key (kbd "C-,") 'beginning-of-buffer)
 (global-set-key (kbd "C-.") 'end-of-buffer)
 (global-set-key (kbd "M-m") 'switch-to-buffer)
-(global-set-key (kbd "C-/") 'comment-or-uncomment-region)
+(global-set-key (kbd "M-/") 'comment-or-uncomment-region)
 (global-set-key (kbd "C-r") 'replace-string)
 (global-set-key (kbd "C-q") 'query-replace)
 
@@ -38,26 +38,56 @@
 (global-set-key (kbd "C-c d") 'duplicate-line)
 (global-set-key (kbd "C-c C-d") 'duplicate-line)
 
-;; acme
+;; golang light
+;; (custom-set-faces
+;;  ;; custom-set-faces was added by Custom.
+;;  ;; If you edit it by hand, you could mess it up, so be careful.
+;;  ;; Your init file should contain only one such instance.
+;;  ;; If there is more than one, they won't work right.
+;;  '(default ((t (:background "#efefef" :foreground "#3e4042" :height 160 :family "SF Mono"))))
+;;  '(font-lock-builtin-face ((t (:inherit default))))
+;;  '(font-lock-comment-face ((t (:foreground "#006600"))))
+;;  '(font-lock-constant-face ((t (:inherit default))))
+;;  '(font-lock-doc-face ((t (:inherit font-lock-comment-face))))
+;;  '(font-lock-function-name-face ((t (:inherit default))))
+;;  '(font-lock-keyword-face ((t (:inherit default))))
+;;  '(font-lock-preprocessor-face ((t (:inherit default))))
+;;  '(font-lock-string-face ((t (:inherit default))))
+;;  '(font-lock-type-face ((t (:inherit default))))
+;;  '(font-lock-variable-name-face ((t (:inherit default))))
+;;  '(isearch ((t (:background "#add1f9"))))
+;;  '(lazy-highlight ((t (:background "#add1f9"))))
+;;  '(region ((t (:background "#add1f9"))))
+;;  '(fringe ((t (:inherit default)))))
+
+(defvar accent-color
+  ;; "#64b2db" ;; blue
+  "#a76f54" ;; wood
+  ;;"#b6db51" ;; acid
+  ;; "#fa2f00" ;; alert (red)
+  ;;"#ffbf3b" ;; golden
+  "Accent color for color scheme")
+
+;; forest
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:background "#FFFFEA" :foreground "#000000" :height 140 :family "SF Mono"))))
+ '(default ((t (:background "#191919" :foreground "#CCCCCC" :height 160 :family "SF Mono"))))
  '(font-lock-builtin-face ((t (:inherit default))))
- '(font-lock-comment-face ((t (:inherit default))))
- '(font-lock-constant-face ((t (:inherit default))))
+ '(font-lock-comment-face ((t (:foreground "#57a73a"))))
+ `(font-lock-constant-face ((t (:foreground ,accent-color))))
  '(font-lock-doc-face ((t (:inherit font-lock-comment-face))))
  '(font-lock-function-name-face ((t (:inherit default))))
- '(font-lock-keyword-face ((t (:inherit default))))
- '(font-lock-preprocessor-face ((t (:inherit default))))
- '(font-lock-string-face ((t (:inherit default))))
- '(font-lock-type-face ((t (:inherit default))))
+ `(font-lock-keyword-face ((t (:foreground ,accent-color))))
+ `(font-lock-preprocessor-face ((t (:foreground ,accent-color))))
+ `(font-lock-string-face ((t (:foreground ,accent-color))))
+ `(font-lock-type-face ((t (:foreground ,accent-color))))
  '(font-lock-variable-name-face ((t (:inherit default))))
- '(isearch ((t (:background "#f9dc78"))))
- '(lazy-highlight ((t (:background "#fff896"))))
- '(region ((t (:background "#EEED9E"))))
+ '(isearch ((t (:background "#add1f9"))))
+ '(lazy-highlight ((t (:background "#add1f9"))))
+ '(region ((t (:background "#add1f9"))))
  '(fringe ((t (:inherit default)))))
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
