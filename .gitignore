@@ -1,3 +1,5 @@
 *
 !init.el
 !.gitignore
+!clojure.el
+!clojure-testing.el
