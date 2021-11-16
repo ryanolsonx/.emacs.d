@@ -15,7 +15,8 @@
 	      js-indent-level 2
 	      css-indent-level 2
               make-backup-file nil
-              auto-save-default nil)
+              auto-save-default nil
+              magit-git-executable "/usr/local/bin/git")
 
 (global-set-key (kbd "C-0") 'delete-window)
 (global-set-key (kbd "C-1") 'delete-other-windows)
