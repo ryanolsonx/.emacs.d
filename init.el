@@ -25,16 +25,11 @@
 (global-set-key (kbd "C-,") 'beginning-of-buffer)
 (global-set-key (kbd "C-.") 'end-of-buffer)
 (global-set-key (kbd "C-c g") 'magit-status)
-(global-set-key (kbd "C-c e") 'eval-buffer)
-(global-set-key (kbd "C-c t") 'ert)
 
-(set-background-color "#121212")
-(set-foreground-color "#dcdcdc")
+;;(load "~/.emacs.d/clojure.el")
 
-(load "~/.emacs.d/clojure.el")
-
-(require 'clojure)
-(message (str/capitalize "lkjfFFDSjkj"))
+;;(require 'clojure)
+;;(message (str/capitalize "lkjfFFDSjkj"))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -47,4 +42,12 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(default ((t (:inherit nil :extend nil :stipple nil :background "#2d2925" :foreground "#c5b19b" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 140 :width normal :foundry "nil" :family "Menlo"))))
+ '(font-lock-builtin-face ((t (:foreground "#e7c173"))))
+ '(font-lock-comment-face ((t (:foreground "#abcd74"))))
+ '(font-lock-constant-face ((t (:foreground "#e7c173"))))
+ '(font-lock-function-name-face ((t nil)))
+ '(font-lock-keyword-face ((t (:foreground "#fadfc2"))))
+ '(font-lock-string-face ((t (:foreground "#df8d68"))))
+ '(font-lock-type-face ((t (:foreground "#e7c173"))))
+ '(font-lock-variable-name-face ((t nil))))
