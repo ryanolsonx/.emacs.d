@@ -13,7 +13,7 @@
 	      ring-bell-function 'ignore
 	      indent-tabs-mode nil
 	      js-indent-level 2
-	      css-indent-level 2
+	      css-offset-level 2
               make-backup-file nil
               auto-save-default nil
               magit-git-executable "/usr/local/bin/git")
@@ -37,13 +37,13 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages '(magit)))
+ '(package-selected-packages '(elm-mode magit)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :extend nil :stipple nil :background "#2d2925" :foreground "#c5b19b" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 140 :width normal :foundry "nil" :family "Menlo"))))
+ '(default ((t (:inherit nil :extend nil :stipple nil :background "#2d2925" :foreground "#c5b19b" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 120 :width normal :foundry "nil" :family "Menlo"))))
  '(font-lock-builtin-face ((t (:foreground "#e7c173"))))
  '(font-lock-comment-face ((t (:foreground "#abcd74"))))
  '(font-lock-constant-face ((t (:foreground "#e7c173"))))
@@ -51,4 +51,5 @@
  '(font-lock-keyword-face ((t (:foreground "#fadfc2"))))
  '(font-lock-string-face ((t (:foreground "#df8d68"))))
  '(font-lock-type-face ((t (:foreground "#e7c173"))))
- '(font-lock-variable-name-face ((t nil))))
+ '(font-lock-variable-name-face ((t nil)))
+ '(org-block ((t (:extend t)))))
