@@ -38,18 +38,21 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages '(elm-mode magit)))
+
+;; Amity
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :extend nil :stipple nil :background "#2d2925" :foreground "#c5b19b" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 120 :width normal :foundry "nil" :family "Menlo"))))
- '(font-lock-builtin-face ((t (:foreground "#e7c173"))))
- '(font-lock-comment-face ((t (:foreground "#abcd74"))))
- '(font-lock-constant-face ((t (:foreground "#e7c173"))))
+ '(default ((t (:inherit nil :extend nil :stipple nil :background "#362b20" :foreground "#e1c8af" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 120 :width normal :foundry "nil" :family "Menlo"))))
+ '(font-lock-builtin-face ((t (:foreground "#e1c8af"))))
+ '(font-lock-comment-face ((t (:foreground "#a0ba76"))))
+ '(font-lock-constant-face ((t (:foreground "#d6ad77"))))
  '(font-lock-function-name-face ((t nil)))
- '(font-lock-keyword-face ((t (:foreground "#fadfc2"))))
- '(font-lock-string-face ((t (:foreground "#df8d68"))))
- '(font-lock-type-face ((t (:foreground "#e7c173"))))
+ '(font-lock-keyword-face ((t (:foreground "#cd8c6c"))))
+ '(font-lock-string-face ((t (:foreground "#d6ad77"))))
+ '(font-lock-type-face ((t (:foreground "#f8af71"))))
  '(font-lock-variable-name-face ((t nil)))
+ '(fringe ((t (:background "#362b20"))))
  '(org-block ((t (:extend t)))))
