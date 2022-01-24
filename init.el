@@ -16,7 +16,6 @@
               css-indent-offset 2
               make-backup-file nil
               auto-save-default nil)
-;;              magit-git-executable "/usr/local/bin/git")
 
 (set-face-attribute 'default nil :height 140)
 
@@ -29,22 +28,3 @@
 (global-set-key (kbd "C-.") 'end-of-buffer)
 (global-set-key (kbd "C-c g") 'magit-status)
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages '(elm-mode magit)))
-
-;; (custom-set-faces
-;;  ;; custom-set-faces was added by Custom.
-;;  ;; If you edit it by hand, you could mess it up, so be careful.
-;;  ;; Your init file should contain only one such instance.
-;;  ;; If there is more than one, they won't work right.
-;;  '(default ((t (:inherit nil :extend nil :stipple nil :background "White" :foreground "#24292f" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 140 :width normal :foundry "nil" :family "Menlo"))))
-;;  '(font-lock-comment-face ((t (:foreground "#928a83"))))
-;;  '(font-lock-function-name-face ((t (:foreground "#799b3e"))))
-;;  '(font-lock-keyword-face ((t (:foreground "#e14166"))))
-;;  '(font-lock-string-face ((t (:foreground "#6d5291"))))
-;;  '(font-lock-type-face ((t (:foreground "#1a8eb8"))))
-;;  '(font-lock-variable-name-face ((t nil))))
