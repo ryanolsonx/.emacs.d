@@ -37,6 +37,11 @@
 (use-package magit
   :bind (("C-c g" . magit-status)))
 
+(use-package typescript-mode
+  :mode ("\\.ts\\'" . typescript-mode)
+  :config
+  (setq typescript-indent-level 2))
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
