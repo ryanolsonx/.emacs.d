@@ -34,6 +34,9 @@
 (global-set-key (kbd "C-.") 'end-of-buffer)
 (global-set-key (kbd "C-c g") 'magit-status)
 
+(use-package magit
+  :bind (("C-c g" . magit-status)))
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
