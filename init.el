@@ -1,13 +1,3 @@
-(require 'package)
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
-(package-initialize)
-
-(unless (package-installed-p 'use-package)
-  (package-refresh-contents)
-  (package-install 'use-package))
-(eval-and-compile
-  (setq use-package-always-ensure t))
-
 (savehist-mode t)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
@@ -19,11 +9,16 @@
 	      ring-bell-function 'ignore
 	      indent-tabs-mode nil
 	      js-indent-level 2
+              typescript-indent-level 2
               css-indent-offset 2
               make-backup-file nil
               auto-save-default nil)
 
-(set-face-attribute 'default nil :height 140)
+(set-face-attribute 'default nil :height 160)
+
+(defun go-to-journal ()
+  (interactive)
+  (find-file (format-time-string "~/journal/%Y/%m/%d.md")))
 
 (global-set-key (kbd "C-0") 'delete-window)
 (global-set-key (kbd "C-1") 'delete-other-windows)
@@ -32,25 +27,17 @@
 (global-set-key (kbd "C-o") (lambda () (interactive) (other-window 1)))
 (global-set-key (kbd "C-,") 'beginning-of-buffer)
 (global-set-key (kbd "C-.") 'end-of-buffer)
-(global-set-key (kbd "C-c g") 'magit-status)
+(global-set-key (kbd "s-j") 'go-to-journal)
+(global-set-key (kbd "s-q") 'query-replace)
+(global-set-key (kbd "s-g") 'magit-status)
+(global-set-key (kbd "s-t") 'tab-bar-mode)
+(global-set-key (kbd "s-1") (lambda () (interactive) (tab-bar-select-tab 1)))
+(global-set-key (kbd "s-2") (lambda () (interactive) (tab-bar-select-tab 2)))
+(global-set-key (kbd "s-3") (lambda () (interactive) (tab-bar-select-tab 3)))
+(global-set-key (kbd "s-4") (lambda () (interactive) (tab-bar-select-tab 4)))
+(global-set-key (kbd "s-5") (lambda () (interactive) (tab-bar-select-tab 5)))
 
-(use-package magit
-  :bind (("C-c g" . magit-status)))
+(add-to-list 'auto-mode-alist '("\\.tsx\\'" . js-mode))
+(add-to-list 'auto-mode-alist '("\\.ts\\'" . js-mode))
 
-(use-package typescript-mode
-  :mode ("\\.ts\\'" . typescript-mode)
-  :config
-  (setq typescript-indent-level 2))
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages '(typescript-mode magit use-package)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
