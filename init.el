@@ -19,7 +19,10 @@
 
 (defun go-to-journal ()
   (interactive)
-  (find-file (format-time-string "~/journal/%Y/%m/%d.md")))
+  (let ((day-file (format-time-string "~/n/journal/%Y/%m/%d.md"))
+        (time (format-time-string "\n\n# %I:%M\n\n")))
+    (find-file day-file)
+    (append-to-file time nil day-file)))
 
 (global-set-key (kbd "C-0") 'delete-window)
 (global-set-key (kbd "C-1") 'delete-other-windows)
