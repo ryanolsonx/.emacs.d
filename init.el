@@ -1,3 +1,7 @@
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+(package-initialize)
+
 (savehist-mode t)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
@@ -5,6 +9,7 @@
 (delete-selection-mode t)
 (global-auto-revert-mode t)
 (global-display-line-numbers-mode t)
+(global-company-mode t)
 
 (setq-default inhibit-startup-screen t
 	      ring-bell-function 'ignore
@@ -44,18 +49,36 @@
 (add-to-list 'auto-mode-alist '("\\.tsx\\'" . js-mode))
 (add-to-list 'auto-mode-alist '("\\.ts\\'" . js-mode))
 
+;; npm install -g typescript-language-server
+
+(require 'eglot)
+(cl-defmethod project-root ((project (head eglot-project)))
+  (cdr project))
+
+(defun ryan-try-tsconfig-json (dir)
+  (when-let* ((found (locate-dominating-file dir "tsconfig.json")))
+    (cons 'eglot-project found)))
+
+(add-hook 'project-find-functions
+          'ryan-try-tsconfig-json nil nil)
+
+(add-to-list 'eglot-server-programs
+             '((js-mode) "typescript-language-server" "--stdio"))
+
+(add-hook 'js-mode-hook 'eglot-ensure)
+
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(package-selected-packages '(company typescript-mode use-package doom-themes magit)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right. 
+ ;; If there is more than one, they won't work right.
  '(font-lock-builtin-face ((t (:foreground "#AF00DB"))))
  '(font-lock-comment-face ((t (:foreground "#008000"))))
  '(font-lock-constant-face ((t (:foreground "#0000FF"))))
