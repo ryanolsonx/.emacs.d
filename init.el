@@ -51,21 +51,22 @@
 
 ;; npm install -g typescript-language-server
 
-(require 'eglot)
-(cl-defmethod project-root ((project (head eglot-project)))
-  (cdr project))
+;; (require 'eglot)
+;; (cl-defmethod project-root ((project (head eglot-project)))
+;;   (cdr project))
 
-(defun ryan-try-tsconfig-json (dir)
-  (when-let* ((found (locate-dominating-file dir "tsconfig.json")))
-    (cons 'eglot-project found)))
+;; (defun ryan-try-tsconfig-json (dir)
+;;   (when-let* ((found (locate-dominating-file dir "tsconfig.json")))
+;;     (cons 'eglot-project found)))
 
-(add-hook 'project-find-functions
-          'ryan-try-tsconfig-json nil nil)
+;; (add-hook 'project-find-functions
+;;           'ryan-try-tsconfig-json nil nil)
 
-(add-to-list 'eglot-server-programs
-             '((js-mode) "typescript-language-server" "--stdio"))
+;; (add-to-list 'eglot-server-programs
+;;              '((js-mode) "typescript-language-server" "--stdio"))
 
-(add-hook 'js-mode-hook 'eglot-ensure)
+;; (add-hook 'js-mode-hook 'eglot-ensure)
+
 
 
 (custom-set-variables
