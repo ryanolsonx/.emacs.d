@@ -4,6 +4,7 @@
 (column-number-mode t)
 (delete-selection-mode t)
 (global-auto-revert-mode t)
+(global-display-line-numbers-mode t)
 
 (setq-default inhibit-startup-screen t
 	      ring-bell-function 'ignore
