@@ -17,6 +17,10 @@
 ;; -- SETTINGS
 (set-frame-font "Menlo 18" nil t)
 
+;; -- KEYBINDINGS
+
+(global-set-key (kbd "s-r") 'eval-buffer)
+
 ;; -- PACKAGES
 (use-package magit)
 
