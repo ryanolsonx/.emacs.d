@@ -14,6 +14,9 @@
 (global-auto-revert-mode t)
 (delete-selection-mode t)
 
+;; -- SETTINGS
+(set-frame-font "Menlo 18" nil t)
+
 ;; -- PACKAGES
 (use-package magit)
 
