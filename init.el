@@ -13,6 +13,8 @@
 (tool-bar-mode -1)
 (global-auto-revert-mode t)
 (delete-selection-mode t)
+(column-number-mode t)
+(savehist-mode t)
 
 ;; -- SETTINGS
 (set-frame-font "Menlo 18" nil t)
