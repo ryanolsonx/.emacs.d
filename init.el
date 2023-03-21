@@ -20,8 +20,12 @@
 (set-frame-font "Menlo 18" nil t)
 
 ;; -- KEYBINDINGS
-
 (global-set-key (kbd "s-r") 'eval-buffer)
+(global-set-key (kbd "C-0") (lambda () (interactive) (delete-window)))
+(global-set-key (kbd "C-1") (lambda () (interactive) (delete-other-windows)))
+(global-set-key (kbd "C-2") (lambda () (interactive) (split-window-vertically) (other-window 1)))
+(global-set-key (kbd "C-3") (lambda () (interactive) (split-window-horizontally) (other-window 1)))
+(global-set-key (kbd "C-o") (lambda () (interactive) (other-window -1)))
 
 ;; -- PACKAGES
 (use-package magit)
