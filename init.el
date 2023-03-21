@@ -28,7 +28,8 @@
 (global-set-key (kbd "C-o") (lambda () (interactive) (other-window -1)))
 
 ;; -- PACKAGES
-(use-package magit)
+(use-package magit
+  :config (global-set-key (kbd "C-c g") 'magit-status))
 
 (use-package zenburn-theme
   :config (load-theme 'zenburn t))
