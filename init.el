@@ -50,6 +50,9 @@
 (use-package prettier-js
   :hook js-mode)
 
+(use-package company
+  :config (global-company-mode t))
+
 ;; -- VIM
 
 (use-package evil
@@ -90,7 +93,7 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(prettier-js add-node-modules-path exec-path-from-shell evil-collection evil elm-mode zenburn-theme magit use-package)))
+   '(company company-mode prettier-js add-node-modules-path exec-path-from-shell evil-collection evil elm-mode zenburn-theme magit use-package)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
