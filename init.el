@@ -8,6 +8,12 @@
 (require 'use-package-ensure)
 (setq use-package-always-ensure t)
 
+;; -- MODES
+
+(tool-bar-mode -1)
+(global-auto-revert-mode t)
+(delete-selection-mode t)
+
 ;; -- PACKAGES
 (use-package magit)
 
