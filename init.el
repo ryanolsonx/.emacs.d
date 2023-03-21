@@ -18,6 +18,11 @@
 
 ;; -- SETTINGS
 (set-frame-font "Menlo 18" nil t)
+(setq-default inhibit-startup-screen t
+	      ring-bell-function 'ignore
+	      indent-tabs-mode nil
+	      js-indent-level 2
+	      css-indent-level 2)
 
 ;; -- KEYBINDINGS
 (global-set-key (kbd "s-r") 'eval-buffer)
