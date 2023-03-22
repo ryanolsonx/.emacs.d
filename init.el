@@ -11,6 +11,7 @@
 ;; -- MODES
 
 (tool-bar-mode -1)
+(scroll-bar-mode -1)
 (global-auto-revert-mode t)
 (delete-selection-mode t)
 (column-number-mode t)
