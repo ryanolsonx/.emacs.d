@@ -53,6 +53,13 @@
 (use-package company
   :config (global-company-mode t))
 
+(use-package lsp-mode
+  :init
+  (setq lsp-ui-sideline-enable t)
+  (setq lsp-ui-doc-enable t)
+  (setq lsp-ui-peek-enable t)
+  (setq lsp-ui-peek-always-show t)
+  :hook js-mode)
 ;; -- VIM
 
 (use-package evil
