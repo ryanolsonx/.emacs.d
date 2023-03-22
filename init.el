@@ -60,6 +60,10 @@
   (setq lsp-ui-peek-enable t)
   (setq lsp-ui-peek-always-show t)
   :hook js-mode)
+
+(use-package which-key
+  :config (which-key-mode))
+
 ;; -- VIM
 
 (use-package evil
@@ -100,7 +104,7 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(company company-mode prettier-js add-node-modules-path exec-path-from-shell evil-collection evil elm-mode zenburn-theme magit use-package)))
+   '(which-key lsp-mode company company-mode prettier-js add-node-modules-path exec-path-from-shell evil-collection evil elm-mode zenburn-theme magit use-package)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
