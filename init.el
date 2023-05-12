@@ -13,10 +13,11 @@
 (delete-selection-mode t)
 (column-number-mode t)
 (savehist-mode t)
-(global-linum-mode t)
+(global-display-line-numbers-mode t)
+(tab-bar-mode t)
 
 ;; -- SETTINGS
-(set-frame-font "Menlo 16" nil t)
+(set-frame-font "SF Mono 16" nil t)
 (setq-default inhibit-startup-screen t
 	      ring-bell-function 'ignore
 	      indent-tabs-mode nil
@@ -24,22 +25,32 @@
 	      css-indent-level 2)
 
 ;; -- KEYBINDINGS
-(global-set-key (kbd "s-r") 'eval-buffer)
 (global-set-key (kbd "C-0") (lambda () (interactive) (delete-window)))
 (global-set-key (kbd "C-1") (lambda () (interactive) (delete-other-windows)))
 (global-set-key (kbd "C-2") (lambda () (interactive) (split-window-vertically) (other-window 1)))
 (global-set-key (kbd "C-3") (lambda () (interactive) (split-window-horizontally) (other-window 1)))
 (global-set-key (kbd "C-o") (lambda () (interactive) (other-window -1)))
 (global-set-key (kbd "C-,") 'beginning-of-buffer)
+(global-set-key (kbd "C-.") 'end-of-buffer)
+(global-set-key (kbd "s-1") (lambda () (interactive) (tab-bar-select-tab 1)))
+(global-set-key (kbd "s-2") (lambda () (interactive) (tab-bar-select-tab 2)))
+(global-set-key (kbd "s-3") (lambda () (interactive) (tab-bar-select-tab 3)))
+(global-set-key (kbd "s-4") (lambda () (interactive) (tab-bar-select-tab 4)))
+(global-set-key (kbd "s-5") (lambda () (interactive) (tab-bar-select-tab 5)))
+(global-set-key (kbd "s-n") 'tab-bar-new-tab)
 
 ;; -- PACKAGES
 (use-package magit
   :config (global-set-key (kbd "C-c g") 'magit-status))
 
-(use-package zenburn-theme
-  :config (load-theme 'zenburn t))
+;; (use-package zenburn-theme
+;;   :config (load-theme 'zenburn t))
 
-(use-package doom-themes)
+(use-package atom-one-dark-theme
+  :config (load-theme 'atom-one-dark t))
+
+;;(use-package doom-themes
+;;  :config (load-theme 'doom-gruvbox t))
 
 (use-package elm-mode)
 
@@ -56,6 +67,7 @@
   :config (global-company-mode t))
 
 (use-package lsp-mode
+  :defer
   :init
   (setq lsp-ui-sideline-enable t)
   (setq lsp-ui-doc-enable t)
@@ -70,10 +82,12 @@
 (use-package vterm-toggle
   :config (global-set-key (kbd "C-c t") 'vterm-toggle))
 
-(use-package counsel
-  :config
-  (global-set-key (kbd "C-c f") 'counsel-git)
-  (global-set-key (kbd "C-c o") 'counsel-outline))
+(use-package multi-vterm)
+
+;;(use-package counsel
+;;  :config
+;;  (global-set-key (kbd "C-c f") 'counsel-git)
+;;  (global-set-key (kbd "C-c o") 'counsel-outline))
 
 ;; -- VIM
 
@@ -115,7 +129,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(doom-themes vterm-toggle counsel vterm which-key lsp-mode company company-mode prettier-js add-node-modules-path exec-path-from-shell evil-collection evil elm-mode zenburn-theme magit use-package)))
+   '(multi-vterm atom-one-dark-theme oceanic-theme badwolf-theme doom-themes vterm-toggle counsel vterm which-key lsp-mode company company-mode prettier-js add-node-modules-path exec-path-from-shell evil-collection evil elm-mode zenburn-theme magit use-package)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
