@@ -14,10 +14,10 @@
 (column-number-mode t)
 (savehist-mode t)
 (global-display-line-numbers-mode t)
-(tab-bar-mode t)
+;; (tab-bar-mode t)
 
 ;; -- SETTINGS
-(set-frame-font "SF Mono 16" nil t)
+(set-frame-font "SF Mono 20" nil t)
 (setq-default inhibit-startup-screen t
 	      ring-bell-function 'ignore
 	      indent-tabs-mode nil
@@ -32,12 +32,12 @@
 (global-set-key (kbd "C-o") (lambda () (interactive) (other-window -1)))
 (global-set-key (kbd "C-,") 'beginning-of-buffer)
 (global-set-key (kbd "C-.") 'end-of-buffer)
-(global-set-key (kbd "s-1") (lambda () (interactive) (tab-bar-select-tab 1)))
-(global-set-key (kbd "s-2") (lambda () (interactive) (tab-bar-select-tab 2)))
-(global-set-key (kbd "s-3") (lambda () (interactive) (tab-bar-select-tab 3)))
-(global-set-key (kbd "s-4") (lambda () (interactive) (tab-bar-select-tab 4)))
-(global-set-key (kbd "s-5") (lambda () (interactive) (tab-bar-select-tab 5)))
-(global-set-key (kbd "s-n") 'tab-bar-new-tab)
+;; (global-set-key (kbd "s-1") (lambda () (interactive) (tab-bar-select-tab 1)))
+;; (global-set-key (kbd "s-2") (lambda () (interactive) (tab-bar-select-tab 2)))
+;; (global-set-key (kbd "s-3") (lambda () (interactive) (tab-bar-select-tab 3)))
+;; (global-set-key (kbd "s-4") (lambda () (interactive) (tab-bar-select-tab 4)))
+;; (global-set-key (kbd "s-5") (lambda () (interactive) (tab-bar-select-tab 5)))
+;; (global-set-key (kbd "s-n") 'tab-bar-new-tab)
 
 ;; -- PACKAGES
 (use-package magit
@@ -46,11 +46,12 @@
 ;; (use-package zenburn-theme
 ;;   :config (load-theme 'zenburn t))
 
-(use-package atom-one-dark-theme
-  :config (load-theme 'atom-one-dark t))
+;;(use-package atom-one-dark-theme
+;;  :config (load-theme 'atom-one-dark t))
 
-;;(use-package doom-themes
-;;  :config (load-theme 'doom-gruvbox t))
+;; (use-package doom-themes
+;;   :config
+;;   (load-theme 'doom-tokyo-night t))
 
 (use-package elm-mode)
 
@@ -123,6 +124,8 @@
 ;;(define-key minibuffer-local-must-match-map [escape] 'minibuffer-keyboard-quit)
 ;;(define-key minibuffer-local-isearch-map [escape] 'minibuffer-keyboard-quit)
 
+(set-cursor-color "#abcd74")
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -135,4 +138,15 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(default ((t (:inherit nil :extend nil :stipple nil :background "#2d2925" :foreground "#c5b19b" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 180 :width normal :foundry "nil" :family "SF Mono"))))
+ '(font-lock-builtin-face ((t (:foreground "#e7c173"))))
+ '(font-lock-comment-face ((t (:foreground "#abcd74"))))
+ '(font-lock-doc-face ((t (:inherit font-lock-comment-face))))
+ '(font-lock-constant-face ((t (:foreground "#e7c173"))))
+ '(font-lock-function-name-face ((t nil)))
+ '(font-lock-keyword-face ((t (:foreground "#fadfc2"))))
+ '(font-lock-string-face ((t (:foreground "#df8d68"))))
+ '(font-lock-type-face ((t (:foreground "#e7c173"))))
+ '(font-lock-variable-name-face ((t nil)))
+ '(org-block ((t (:extend t)))))
+
