@@ -24,6 +24,9 @@
 	      js-indent-level 2
 	      css-indent-level 2)
 
+(setq org-todo-keywords
+      '((sequence "TODO" "IN-PROGRESS" "DONE")))
+
 ;; -- KEYBINDINGS
 (global-set-key (kbd "C-0") (lambda () (interactive) (delete-window)))
 (global-set-key (kbd "C-1") (lambda () (interactive) (delete-other-windows)))
@@ -49,9 +52,12 @@
 ;;(use-package atom-one-dark-theme
 ;;  :config (load-theme 'atom-one-dark t))
 
-;; (use-package doom-themes
-;;   :config
-;;   (load-theme 'doom-tokyo-night t))
+(use-package doom-themes
+   :config
+   (load-theme 'doom-monokai-machine t))
+
+(use-package vscode-dark-plus-theme
+  :config (load-theme 'vscode-dark-plus t))
 
 (use-package elm-mode)
 
@@ -81,9 +87,13 @@
 (use-package vterm)
 
 (use-package vterm-toggle
-  :config (global-set-key (kbd "C-c t") 'vterm-toggle))
+  :config (global-set-key (kbd "C-c v") 'vterm-toggle))
 
 (use-package multi-vterm)
+
+(use-package color-theme-sanityinc-solarized)
+
+(use-package solarized-theme)
 
 ;;(use-package counsel
 ;;  :config
@@ -149,4 +159,12 @@
  '(font-lock-type-face ((t (:foreground "#e7c173"))))
  '(font-lock-variable-name-face ((t nil)))
  '(org-block ((t (:extend t)))))
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   '(solarized-theme color-theme-sanityinc-solarized vscode-dark-plus-theme zenburn-theme which-key vterm-toggle use-package prettier-js oceanic-theme multi-vterm magit lsp-mode exec-path-from-shell evil-collection elm-mode doom-themes counsel company badwolf-theme atom-one-dark-theme add-node-modules-path)))
 
