@@ -17,17 +17,17 @@
 ;; (tab-bar-mode t)
 
 ;; -- SETTINGS
-(set-frame-font "SF Mono 20" nil t)
+
+(set-frame-font "SF Mono 13" nil t)
 (setq-default inhibit-startup-screen t
 	      ring-bell-function 'ignore
 	      indent-tabs-mode nil
 	      js-indent-level 2
-	      css-indent-level 2)
-
-(setq org-todo-keywords
-      '((sequence "TODO" "IN-PROGRESS" "DONE")))
+	      css-indent-level 2
+              solarized-use-less-bold t)
 
 ;; -- KEYBINDINGS
+
 (global-set-key (kbd "C-0") (lambda () (interactive) (delete-window)))
 (global-set-key (kbd "C-1") (lambda () (interactive) (delete-other-windows)))
 (global-set-key (kbd "C-2") (lambda () (interactive) (split-window-vertically) (other-window 1)))
@@ -43,21 +43,9 @@
 ;; (global-set-key (kbd "s-n") 'tab-bar-new-tab)
 
 ;; -- PACKAGES
+
 (use-package magit
   :config (global-set-key (kbd "C-c g") 'magit-status))
-
-;; (use-package zenburn-theme
-;;   :config (load-theme 'zenburn t))
-
-;;(use-package atom-one-dark-theme
-;;  :config (load-theme 'atom-one-dark t))
-
-(use-package doom-themes
-   :config
-   (load-theme 'doom-monokai-machine t))
-
-(use-package vscode-dark-plus-theme
-  :config (load-theme 'vscode-dark-plus t))
 
 (use-package elm-mode)
 
@@ -73,68 +61,17 @@
 (use-package company
   :config (global-company-mode t))
 
-(use-package lsp-mode
-  :defer
-  :init
-  (setq lsp-ui-sideline-enable t)
-  (setq lsp-ui-doc-enable t)
-  (setq lsp-ui-peek-enable t)
-  (setq lsp-ui-peek-always-show t))
-
 (use-package which-key
   :config (which-key-mode))
 
-(use-package vterm)
-
-(use-package vterm-toggle
-  :config (global-set-key (kbd "C-c v") 'vterm-toggle))
-
-(use-package multi-vterm)
-
 (use-package color-theme-sanityinc-solarized)
+
+(use-package zenburn-theme
+  :config (load-theme 'zenburn t))
 
 (use-package solarized-theme)
 
-;;(use-package counsel
-;;  :config
-;;  (global-set-key (kbd "C-c f") 'counsel-git)
-;;  (global-set-key (kbd "C-c o") 'counsel-outline))
-
-;; -- VIM
-
-;;(use-package evil
-;;  :init (setq evil-shift-width 2
-;;              evil-want-keybinding nil
-;;              evil-want-C-u-delete t
-;;              evil-want-C-u-scroll t
-;;              evil-want-C-w-in-emacs-state t)
-;;  :config (evil-mode 1))
-;;
-;;(use-package evil-collection
-;;  :after evil
-;;  :ensure t
-;;  :config
-;;  (evil-collection-init))
-;;
-;;;; Ensure that ESC quits things
-;;(defun minibuffer-keyboard-quit ()
-;;  "Abort recursive edit.
-;;In Delete Selection mode, if the mark is active, just deactivate it;
-;;then it takes a second \\[keyboard-quit] to abort the minibuffer."
-;;  (interactive)
-;;  (if (and delete-selection-mode transient-mark-mode mark-active)
-;;      (setq deactivate-mark  t)
-;;    (when (get-buffer "*Completions*") (delete-windows-on "*Completions*"))
-;;    (abort-recursive-edit)))
-;;(define-key evil-normal-state-map [escape] 'keyboard-quit)
-;;(define-key evil-visual-state-map [escape] 'keyboard-quit)
-;;(define-key minibuffer-local-map [escape] 'minibuffer-keyboard-quit)
-;;(define-key minibuffer-local-ns-map [escape] 'minibuffer-keyboard-quit)
-;;(define-key minibuffer-local-completion-map [escape] 'minibuffer-keyboard-quit)
-;;(define-key minibuffer-local-must-match-map [escape] 'minibuffer-keyboard-quit)
-;;(define-key minibuffer-local-isearch-map [escape] 'minibuffer-keyboard-quit)
-
-(set-cursor-color "#abcd74")
+;;(load-theme 'solarized-dark-high-contrast t)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -142,29 +79,10 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(multi-vterm atom-one-dark-theme oceanic-theme badwolf-theme doom-themes vterm-toggle counsel vterm which-key lsp-mode company company-mode prettier-js add-node-modules-path exec-path-from-shell evil-collection evil elm-mode zenburn-theme magit use-package)))
+   '(color-theme-sanityinc-zenburn gruvbox-theme zenburn-theme which-key vterm-toggle vscode-dark-plus-theme use-package solarized-theme prettier-js oceanic-theme multi-vterm magit lsp-mode exec-path-from-shell evil-collection elm-mode doom-themes counsel company color-theme-sanityinc-solarized badwolf-theme atom-one-dark-theme add-node-modules-path)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :extend nil :stipple nil :background "#2d2925" :foreground "#c5b19b" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 180 :width normal :foundry "nil" :family "SF Mono"))))
- '(font-lock-builtin-face ((t (:foreground "#e7c173"))))
- '(font-lock-comment-face ((t (:foreground "#abcd74"))))
- '(font-lock-doc-face ((t (:inherit font-lock-comment-face))))
- '(font-lock-constant-face ((t (:foreground "#e7c173"))))
- '(font-lock-function-name-face ((t nil)))
- '(font-lock-keyword-face ((t (:foreground "#fadfc2"))))
- '(font-lock-string-face ((t (:foreground "#df8d68"))))
- '(font-lock-type-face ((t (:foreground "#e7c173"))))
- '(font-lock-variable-name-face ((t nil)))
- '(org-block ((t (:extend t)))))
-
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   '(solarized-theme color-theme-sanityinc-solarized vscode-dark-plus-theme zenburn-theme which-key vterm-toggle use-package prettier-js oceanic-theme multi-vterm magit lsp-mode exec-path-from-shell evil-collection elm-mode doom-themes counsel company badwolf-theme atom-one-dark-theme add-node-modules-path)))
-
+ )
