@@ -18,13 +18,12 @@
 
 ;; -- SETTINGS
 
-(set-frame-font "SF Mono 13" nil t)
+(set-frame-font "Menlo 18" nil t)
 (setq-default inhibit-startup-screen t
 	      ring-bell-function 'ignore
 	      indent-tabs-mode nil
 	      js-indent-level 2
-	      css-indent-level 2
-              solarized-use-less-bold t)
+	      css-indent-level 2)
 
 ;; -- KEYBINDINGS
 
@@ -64,14 +63,8 @@
 (use-package which-key
   :config (which-key-mode))
 
-(use-package color-theme-sanityinc-solarized)
-
 (use-package zenburn-theme
   :config (load-theme 'zenburn t))
-
-(use-package solarized-theme)
-
-;;(load-theme 'solarized-dark-high-contrast t)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
