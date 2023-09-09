@@ -5,6 +5,11 @@
 (require 'use-package-ensure)
 (setq use-package-always-ensure t)
 
+(setq win (string= system-type "windows-nt"))
+
+(if win
+    (setq url-proxy-services '(("https" . "proxy") ("http" . "proxy"))))
+
 ;; -- MODES
 
 (tool-bar-mode -1)
@@ -18,7 +23,7 @@
 
 ;; -- SETTINGS
 
-(set-frame-font "Menlo 18" nil t)
+(set-frame-font (if win "Consolas 14" "Menlo 16") nil t)
 (setq-default inhibit-startup-screen t
 	      ring-bell-function 'ignore
 	      indent-tabs-mode nil
@@ -48,13 +53,14 @@
 
 (use-package elm-mode)
 
-(use-package exec-path-from-shell
-  :config (exec-path-from-shell-initialize))
+(if (not win)
+    (use-package exec-path-from-shell
+      :config (exec-path-from-shell-initialize)))
 
 (use-package add-node-modules-path
   :config (add-hook 'js-mode-hook #'add-node-modules-path))
 
-(use-package prettier-js
+(use-package prettier
   :hook js-mode)
 
 (use-package company
@@ -72,7 +78,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(color-theme-sanityinc-zenburn gruvbox-theme zenburn-theme which-key vterm-toggle vscode-dark-plus-theme use-package solarized-theme prettier-js oceanic-theme multi-vterm magit lsp-mode exec-path-from-shell evil-collection elm-mode doom-themes counsel company color-theme-sanityinc-solarized badwolf-theme atom-one-dark-theme add-node-modules-path)))
+   '(prettier color-theme-sanityinc-zenburn gruvbox-theme zenburn-theme which-key vterm-toggle vscode-dark-plus-theme use-package solarized-theme prettier-js oceanic-theme multi-vterm magit lsp-mode exec-path-from-shell evil-collection elm-mode doom-themes counsel company color-theme-sanityinc-solarized badwolf-theme atom-one-dark-theme add-node-modules-path)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
