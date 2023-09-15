@@ -18,7 +18,11 @@
 (delete-selection-mode t)
 (column-number-mode t)
 (savehist-mode t)
-(global-display-line-numbers-mode t)
+;;(global-display-line-numbers-mode t)
+(set-background-color "#1e1e1e")
+(set-foreground-color "#d4d4d4")
+(set-cursor-color "#ea94d6")
+(global-font-lock-mode 0)
 ;; (tab-bar-mode t)
 
 ;; -- SETTINGS
@@ -48,6 +52,10 @@
 
 ;; -- PACKAGES
 
+(if win (add-to-list 'exec-path "path/to/git"))
+(if win (add-to-list 'exec-path "path/to/node"))
+(if win (add-to-list 'exec-path "path/to/npmglobal"))
+
 (use-package magit
   :config (global-set-key (kbd "C-c g") 'magit-status))
 
@@ -69,8 +77,8 @@
 (use-package which-key
   :config (which-key-mode))
 
-(use-package zenburn-theme
-  :config (load-theme 'zenburn t))
+;;(use-package zenburn-theme
+;;  :config (load-theme 'zenburn t))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
