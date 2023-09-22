@@ -19,10 +19,10 @@
 (column-number-mode t)
 (savehist-mode t)
 ;;(global-display-line-numbers-mode t)
-(set-background-color "#1e1e1e")
-(set-foreground-color "#d4d4d4")
-(set-cursor-color "#ea94d6")
-(global-font-lock-mode 0)
+;;(set-background-color "#1e1e1e")
+;;(set-foreground-color "#d4d4d4")
+;;(set-cursor-color "#ea94d6")
+;;(global-font-lock-mode 0)
 ;; (tab-bar-mode t)
 
 ;; -- SETTINGS
@@ -56,10 +56,22 @@
 (if win (add-to-list 'exec-path "path/to/node"))
 (if win (add-to-list 'exec-path "path/to/npmglobal"))
 
+(defun my-magit-status ()
+  (interactive)
+  (magit-status)
+  (delete-other-windows)
+  (font-lock-mode))
+
 (use-package magit
-  :config (global-set-key (kbd "C-c g") 'magit-status))
+  :config (global-set-key (kbd "C-c g") 'my-magit-status))
 
 (use-package elm-mode)
+
+(use-package go-mode
+  :custom
+  (gofmt-command "goimports")
+  :init
+  (add-hook 'before-save-hook #'gofmt-before-save))
 
 (if (not win)
     (use-package exec-path-from-shell
@@ -80,16 +92,28 @@
 ;;(use-package zenburn-theme
 ;;  :config (load-theme 'zenburn t))
 
-(custom-set-variables
+;;(use-package doom-themes
+;;  :config (load-theme 'doom-one t))
+;;(use-package solarized-theme
+;;  :config (load-theme 'solarized-dark t))
+
+;;(use-package atom-one-dark-theme)
+
+(set-cursor-color "#abcd74")
+
+(custom-set-faces
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   '(prettier color-theme-sanityinc-zenburn gruvbox-theme zenburn-theme which-key vterm-toggle vscode-dark-plus-theme use-package solarized-theme prettier-js oceanic-theme multi-vterm magit lsp-mode exec-path-from-shell evil-collection elm-mode doom-themes counsel company color-theme-sanityinc-solarized badwolf-theme atom-one-dark-theme add-node-modules-path)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+ '(default ((t (:inherit nil :extend nil :stipple nil :background "#2d2925" :foreground "#c5b19b" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 130 :width normal :foundry "nil" :family "Menlo"))))
+ '(font-lock-builtin-face ((t (:foreground "#e7c173"))))
+ '(font-lock-comment-face ((t (:foreground "#abcd74"))))
+ '(font-lock-doc-face ((t (:inherit font-lock-comment-face))))
+ '(font-lock-constant-face ((t (:foreground "#e7c173"))))
+ '(font-lock-function-name-face ((t nil)))
+ '(font-lock-keyword-face ((t (:foreground "#fadfc2"))))
+ '(font-lock-string-face ((t (:foreground "#df8d68"))))
+ '(font-lock-type-face ((t (:foreground "#e7c173"))))
+ '(font-lock-variable-name-face ((t nil)))
+ '(org-block ((t (:extend t)))))
