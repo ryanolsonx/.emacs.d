@@ -4,11 +4,7 @@
 (delete-selection-mode t)
 (column-number-mode t)
 (savehist-mode t)
-;;(set-background-color "#1e1e1e")
-;;(set-foreground-color "#d4d4d4")
-;;(set-cursor-color "#ea94d6")
-;;(global-font-lock-mode 0)
-;;(set-frame-font "Menlo 16")
+
 (setq-default inhibit-startup-screen t
 	      ring-bell-function 'ignore
 	      indent-tabs-mode nil
@@ -22,6 +18,7 @@
 (global-set-key (kbd "C-o") (lambda () (interactive) (other-window -1)))
 (global-set-key (kbd "C-,") 'beginning-of-buffer)
 (global-set-key (kbd "C-.") 'end-of-buffer)
+(global-set-key (kbd "C-m") 'magit-status)
 
 (set-cursor-color "#abcd74")
 
