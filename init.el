@@ -11,6 +11,9 @@
 	      js-indent-level 2
 	      css-indent-level 2)
 
+;;(load-theme 'zenburn 'no-confirm)
+(set-face-attribute 'default nil :height 180)
+
 (global-set-key (kbd "C-0") (lambda () (interactive) (delete-window)))
 (global-set-key (kbd "C-1") (lambda () (interactive) (delete-other-windows)))
 (global-set-key (kbd "C-2") (lambda () (interactive) (split-window-vertically) (other-window 1)))
@@ -18,23 +21,43 @@
 (global-set-key (kbd "C-o") (lambda () (interactive) (other-window -1)))
 (global-set-key (kbd "C-,") 'beginning-of-buffer)
 (global-set-key (kbd "C-.") 'end-of-buffer)
-(global-set-key (kbd "C-m") 'magit-status)
+(global-set-key (kbd "C-c g") 'magit-status)
 
-(set-cursor-color "#abcd74")
+;; (set-cursor-color "#abcd74")
 
-(custom-set-faces
+;; (custom-set-faces
+;;  ;; custom-set-faces was added by Custom.
+;;  ;; If you edit it by hand, you could mess it up, so be careful.
+;;  ;; Your init file should contain only one such instance.
+;;  ;; If there is more than one, they won't work right.
+;;  '(default ((t (:inherit nil :extend nil :stipple nil :background "#2d2925" :foreground "#c5b19b" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 160 :width normal :foundry "nil" :family "Menlo"))))
+;;  '(font-lock-builtin-face ((t (:foreground "#e7c173"))))
+;;  '(font-lock-comment-face ((t (:foreground "#abcd74"))))
+;;  '(font-lock-constant-face ((t (:foreground "#e7c173"))))
+;;  '(font-lock-doc-face ((t (:inherit font-lock-comment-face))))
+;;  '(font-lock-function-name-face ((t nil)))
+;;  '(font-lock-keyword-face ((t (:foreground "#fadfc2"))))
+;;  '(font-lock-string-face ((t (:foreground "#df8d68"))))
+;;  '(font-lock-type-face ((t (:foreground "#e7c173"))))
+;;  '(font-lock-variable-name-face ((t nil)))
+;;  '(org-block ((t (:extend t)))))
+;; (custom-set-variables
+;;  ;; custom-set-variables was added by Custom.
+;;  ;; If you edit it by hand, you could mess it up, so be careful.
+;;  ;; Your init file should contain only one such instance.
+;;  ;; If there is more than one, they won't work right.
+;;  '(package-selected-packages
+;;    '(darcula-theme zenburn-theme which-key solarized-theme prettier-js prettier magit go-mode exec-path-from-shell elm-mode doom-themes cyberpunk-theme cyberpunk-2019-theme company color-theme-sanityinc-solarized atom-one-dark-theme add-node-modules-path)))
+(custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :extend nil :stipple nil :background "#2d2925" :foreground "#c5b19b" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 160 :width normal :foundry "nil" :family "Menlo"))))
- '(font-lock-builtin-face ((t (:foreground "#e7c173"))))
- '(font-lock-comment-face ((t (:foreground "#abcd74"))))
- '(font-lock-doc-face ((t (:inherit font-lock-comment-face))))
- '(font-lock-constant-face ((t (:foreground "#e7c173"))))
- '(font-lock-function-name-face ((t nil)))
- '(font-lock-keyword-face ((t (:foreground "#fadfc2"))))
- '(font-lock-string-face ((t (:foreground "#df8d68"))))
- '(font-lock-type-face ((t (:foreground "#e7c173"))))
- '(font-lock-variable-name-face ((t nil)))
- '(org-block ((t (:extend t)))))
+ '(custom-safe-themes
+   '("3f1dcd824a683e0ab194b3a1daac18a923eed4dba5269eecb050c718ab4d5a26" default)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
